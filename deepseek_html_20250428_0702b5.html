@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Fiscalização</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Fiscalização</h1>
+        <form id="formFiscalizacao">
+            <!-- Data -->
+            <div class="form-group">
+                <label for="data">Data da Fiscalização:</label>
+                <input type="date" id="data" name="data" required>
+            </div>
+            
+            <!-- Veículos Abordados -->
+            <div class="form-group">
+                <label for="veiculosAbordados">Veículos Abordados:</label>
+                <input type="number" id="veiculosAbordados" name="veiculosAbordados" min="0" required>
+            </div>
+            
+            <!-- Veículos Autuados -->
+            <div class="form-group">
+                <label for="veiculosAutuados">Veículos Autuados:</label>
+                <input type="number" id="veiculosAutuados" name="veiculosAutuados" min="0" required>
+            </div>
+            
+            <!-- Tipo de Veículo -->
+            <div class="form-group">
+                <label>Tipo de Veículo:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="tipoVeiculo" value="Passeio" checked> Passeio</label>
+                    <label><input type="radio" name="tipoVeiculo" value="Utilitário"> Utilitário</label>
+                    <label><input type="radio" name="tipoVeiculo" value="Caminhão"> Caminhão</label>
+                    <label><input type="radio" name="tipoVeiculo" value="Motocicleta"> Motocicleta</label>
+                    <label><input type="radio" name="tipoVeiculo" value="Ônibus"> Ônibus</label>
+                    <label><input type="radio" name="tipoVeiculo" value="Outros"> Outros</label>
+                </div>
+            </div>
+            
+            <!-- Upload de Fotos -->
+            <div class="form-group">
+                <label for="fotos">Fotos da Fiscalização:</label>
+                <input type="file" id="fotos" name="fotos" multiple accept="image/*">
+                <small>Selecione uma ou mais fotos (Máx. 5MB cada)</small>
+                <div id="previewFotos"></div>
+            </div>
+            
+            <!-- Observações -->
+            <div class="form-group">
+                <label for="observacoes">Observações:</label>
+                <textarea id="observacoes" name="observacoes" rows="4"></textarea>
+            </div>
+            
+            <button type="submit" class="btn-enviar">Registrar Fiscalização</button>
+        </form>
+        
+        <div id="mensagem"></div>
+        
+        <!-- Lista de Fiscalizações Registradas (para demonstração) -->
+        <div id="listaFiscalizacoes" class="hidden">
+            <h2>Últimas Fiscalizações</h2>
+            <div id="registros"></div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
